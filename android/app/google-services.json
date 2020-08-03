@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "252618132227",
+    "firebase_url": "https://iit-360-firebase-auth.firebaseio.com",
+    "project_id": "iit-360-firebase-auth",
+    "storage_bucket": "iit-360-firebase-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252618132227:android:5c858e70bb222ae0edb736",
+        "android_client_info": {
+          "package_name": "com.ryans.iit360"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252618132227-jujlhboro1t5g0o99bbi56t5qavdmbpl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ryans.iit360",
+            "certificate_hash": "53e9333110f2cc725168e985baf7d0909a90a440"
+          }
+        },
+        {
+          "client_id": "252618132227-cnt2gonau92h5l3jf8279i1u0kc21nve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxbWirbTf4TnbkWBTcIk2etwRGMp0KzBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252618132227-cnt2gonau92h5l3jf8279i1u0kc21nve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
