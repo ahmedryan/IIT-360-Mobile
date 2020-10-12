@@ -21,6 +21,9 @@ class _PreviousEventScreenState extends State<PreviousEventScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('News and Events'),
+      ),
       body: FutureBuilder(
         future: futureEvent,
         builder: (context, snapshot) {

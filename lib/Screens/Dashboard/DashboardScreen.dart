@@ -16,7 +16,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  MyAuthentication _myAuthentication = MyAuthentication();
+  MyAuthentication _myAuthentication = new MyAuthentication();
   bool _isLoggedIn = global.isLoggedIn;
   bool _isCr = global.isCR;
 
@@ -38,16 +38,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
               if (!_isLoggedIn)
-                UserAccountsDrawerHeader(accountName: null, accountEmail: null),
+                UserAccountsDrawerHeader(
+                    accountName: Text(''), accountEmail: Text('')),
               if (_isLoggedIn)
                 ListTile(
-                    leading: Icon(Icons.assignment),
+                    leading: Icon(Icons.sentiment_very_dissatisfied),
                     title: new Text("Routine"),
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => RoutineScreen(),
+                        ),
+                      );
+                    }),
+              if (_isCr)
+                ListTile(
+                    leading: Icon(Icons.add_comment),
+                    title: new Text("Change Routine"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChangeRoutine(),
                         ),
                       );
                     }),
@@ -86,27 +99,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     );
                   }),
-              if (_isCr)
-                ListTile(
-                    leading: Icon(Icons.phone),
-                    title: new Text("Change Routine"),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ChangeRoutine(),
-                        ),
-                      );
-                    }),
               if (_isLoggedIn)
                 ListTile(
                     leading: Icon(Icons.account_circle),
                     title: new Text("Logout"),
                     onTap: () {
-                      _myAuthentication.handleSignOut();
-                      setState(() {
-                        _isLoggedIn = false;
-                        _isCr = false;
+                      _myAuthentication.handleSignOut().then((value) {
+                        setState(() {
+                          _isLoggedIn = false;
+                          _isCr = false;
+                        });
                       });
                     }),
               if (!_isLoggedIn)

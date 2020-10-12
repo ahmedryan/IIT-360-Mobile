@@ -16,6 +16,7 @@ main() {
 
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DashboardScreen(),
     ),
   );
@@ -26,8 +27,12 @@ Future<void> isUserLoggedIn() async {
 
   var user = await _auth.currentUser();
   if (user != null) {
-    global.user = user;
-    global.isLoggedIn = true;
+    for (int i = 0; i < global.iitianListGlobal.length; i++) {
+      if (user.email == global.iitianListGlobal[i].iitianMail) {
+        global.user = user;
+        global.isLoggedIn = true;
+      }
+    }
   } else
     global.isLoggedIn = false;
 }

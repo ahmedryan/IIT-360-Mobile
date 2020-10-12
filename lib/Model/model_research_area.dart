@@ -11,25 +11,25 @@ String researchAreaToJson(List<ResearchArea> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class ResearchArea {
-  String researchAreaId;
-  String fieldName;
-  String areaDescription;
-
   ResearchArea({
     this.researchAreaId,
     this.fieldName,
     this.areaDescription,
   });
 
+  int researchAreaId;
+  String fieldName;
+  String areaDescription;
+
   factory ResearchArea.fromJson(Map<String, dynamic> json) => ResearchArea(
-        researchAreaId: json["research_area_id"],
-        fieldName: json["field_name"],
-        areaDescription: json["area_description"],
+        researchAreaId: json["researchAreaId"],
+        fieldName: json["fieldName"],
+        areaDescription: json["areaDescription"],
       );
 
   Map<String, dynamic> toJson() => {
-        "research_area_id": researchAreaId,
-        "field_name": fieldName,
-        "area_description": areaDescription,
+        "researchAreaId": researchAreaId,
+        "fieldName": fieldName,
+        "areaDescription": areaDescription,
       };
 }

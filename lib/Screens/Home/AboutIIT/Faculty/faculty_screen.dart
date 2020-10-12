@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iitappdevelopment/API_Call/call_faculty.dart';
+import 'package:iitappdevelopment/Attribute/url.dart';
 import 'package:iitappdevelopment/Model/model_faculty.dart';
 import 'package:iitappdevelopment/Screens/Home/AboutIIT/Faculty/faculty_profile_screen.dart';
 
@@ -59,7 +60,7 @@ class _FacultyState extends State<FacultyScreen> {
                           children: [
                             Expanded(
                               child: Image.network(
-                                'http://lit360.000webhostapp.com/getImage.php?id=${faculty.fkFacultyImage}',
+                                '${URL.host}/api/Images/${faculty.fkFacultyImage}',
                               ), //FadeInImage use instead
                             ),
                             Text(

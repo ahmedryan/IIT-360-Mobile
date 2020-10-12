@@ -21,6 +21,9 @@ class _AchievementState extends State<AchievementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Achievements'),
+      ),
       body: FutureBuilder(
         future: futureAchievement,
         builder: (context, snapshot) {

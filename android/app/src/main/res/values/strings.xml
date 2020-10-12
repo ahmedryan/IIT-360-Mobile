@@ -1,0 +1,4 @@
+<resources>
+    <string name="text_view">Alarm Activity</string>
+    <string name="sunday_alarm">Sunday Alarm</string>
+</resources>

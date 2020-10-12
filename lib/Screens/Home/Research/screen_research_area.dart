@@ -20,6 +20,9 @@ class _ResearchAreaScreenState extends State<ResearchAreaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Research Area'),
+      ),
       body: FutureBuilder(
         future: futureResearchArea,
         builder: (context, snapshot) {

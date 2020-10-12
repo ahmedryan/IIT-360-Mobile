@@ -2,11 +2,11 @@ class URL {
   static String host = 'https://iit360api20200630172203.azurewebsites.net';
 
   //About IIT
-  String institutionURL = 'http://lit360.000webhostapp.com/institution.php';
-  String objectiveURL = 'http://lit360.000webhostapp.com/aimsNobjectives.php';
-  String historyURL = 'http://lit360.000webhostapp.com/history.php';
-  String facultyURL = 'http://lit360.000webhostapp.com/faculty.php';
-  String staffURL = 'http://lit360.000webhostapp.com/staff.php';
+  String institutionURL = '$host/api/Institutions';
+  String objectiveURL = '$host/api/Anos';
+  String historyURL = '$host/api/Histories';
+  String facultyURL = '$host/api/Faculties';
+  String staffURL = '$host/api/Staffs';
 
   //Academic
   String academicGSURL = '$host/api/Academics/GetAcademic/GS';
@@ -14,22 +14,33 @@ class URL {
   String academicUGSURL = '$host/api/Academics/GetAcademic/UGS';
 
   //Notice
-  String noticeURL = 'http://lit360.000webhostapp.com/notice.php'; //remove it
-  String generalNoticeUrl = '$host/api/Notices/GetNotice/General';
-  String projectNoticeUrl = '$host/api/Notices/GetNotice/Project';
-  String ugsNoticeUrl = '$host/api/Notices/GetNotice/UGS';
-  String gsNoticeUrl = '$host/api/Notices/GetNotice/GS';
-  String tpNoticeUrl = '$host/api/Notices/GetNotice/TP';
+  String scholarshipNoticeUrl = '$host/api/Notices/GetNotice/scholarship';
+  String registrarOffice = '$host/api/Notices/GetNotice/registrarOffice';
+
+  String projectNoticeUrl = '$host/api/Notices/GetNotice/project';
+
+  String bsseNoticeUrl = '$host/api/Notices/GetNotice/bsse';
+
+  String msseNoticeUrl = '$host/api/Notices/GetNotice/msse';
+  String mitNoticeUrl = '$host/api/Notices/GetNotice/mit';
+  String pgditNoticeUrl = '$host/api/Notices/GetNotice/pgdit';
+
+  String webDesignUrl = '$host/api/Notices/GetNotice/webDesign';
+  String webProgrammingUrl = '$host/api/Notices/GetNotice/webProgramming';
+  String officeApplicationUrl =
+      '$host/api/Notices/GetNotice/officeApplications';
+  String matlabOriginLatexUrl = '$host/api/Notices/GetNotice/matlabOriginLatex';
+  String mobileApplicationUrl = '$host/api/Notices/GetNotice/mobileApplication';
 
   //Life in IIT
   String eventPreviousURL = '$host/api/Events/Previous';
   String eventUpcomingURL = '$host/api/Events/Upcoming';
-  String achievementURL = 'http://lit360.000webhostapp.com/achievement.php';
+  String achievementURL = '$host/api/Achievements';
 
   //Research
   String publicationURL = '$host/api/Publications/GetPublication';
-  String researchURL = 'http://lit360.000webhostapp.com/research.php';
-  String researchAreaURL = 'http://lit360.000webhostapp.com/research_area.php';
+  String researchURL = '$host/api/Researches/GetResearch';
+  String researchAreaURL = '$host/api/Researchareas';
 
   //Iitian
   String iitianURL = '$host/api/Iitians';

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:iitappdevelopment/API_Call/call_academic_gs.dart';
 import 'package:iitappdevelopment/API_Call/call_academic_tp.dart';
 import 'package:iitappdevelopment/API_Call/call_academic_ugs.dart';
+import 'package:iitappdevelopment/Screens/Home/Notice/notice_screen.dart';
 
 import 'AboutIIT/Faculty/faculty_screen.dart';
 import 'AboutIIT/history_screen.dart';
 import 'AboutIIT/institution_screen.dart';
 import 'AboutIIT/objective_screen.dart';
 import 'AboutIIT/staff_screen.dart';
-import 'Academic/screen_academic_section.dart';
+import 'Academic/academic_section_screen.dart';
 import 'LifeInIIT/screen_achievement.dart';
 import 'LifeInIIT/screen_event_previous.dart';
 import 'LifeInIIT/screen_event_upcoming.dart';
@@ -145,22 +146,27 @@ Widget _noticeWidget() {
         ContentCard(
           title: 'General',
           imagePath: 'images/general.jpg',
+          nextScreen: GeneralNoticeScreen(),
         ),
         ContentCard(
           title: 'Projects',
           imagePath: 'images/project.jpg',
+          nextScreen: ProjectNoticeScreen(),
         ),
         ContentCard(
           title: 'Undergraduate Studies',
           imagePath: 'images/undergraduateN.jpg',
+          nextScreen: UGSNoticeScreen(),
         ),
         ContentCard(
           title: 'Graduate Studies',
           imagePath: 'images/graduateN.jpg',
+          nextScreen: GSNoticeScreen(),
         ),
         ContentCard(
           title: 'Training Programs',
           imagePath: 'images/trainingN.jpg',
+          nextScreen: TPNoticeScreen(),
         ),
       ],
     ),

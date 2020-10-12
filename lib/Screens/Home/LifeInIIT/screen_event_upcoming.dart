@@ -21,6 +21,9 @@ class _UpcomingEventScreenState extends State<UpcomingEventScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Upcoming Events'),
+      ),
       body: FutureBuilder(
         future: futureEvent,
         builder: (context, snapshot) {
