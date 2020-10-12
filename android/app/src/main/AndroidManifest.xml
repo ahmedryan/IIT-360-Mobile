@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ryans.iitappdevelopment">
+
     <!--
      io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -16,6 +17,14 @@
         android:name="io.flutter.app.FlutterApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="iitappdevelopment">
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <service android:name=".MyIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+
         <activity
             android:name=".AlarmActivity"
             android:theme="@style/Theme.AppCompat.Light" />

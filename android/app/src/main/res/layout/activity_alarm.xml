@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ryans.iitappdevelopment.AlarmActivity"
-    android:orientation="vertical">
+    tools:context=".MainActivity">
 
-    <!-- A CardView that contains a TextView -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/start_job"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        card_view:cardCornerRadius="4dp">
+        android:text="@string/start_job" />
 
-        <TextView
-            android:id="@+id/sunday_alarm"
-            android:layout_width="271dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/sunday_alarm"
-            android:textSize="36sp" />
-
-    </androidx.cardview.widget.CardView>
-
-</LinearLayout>
+    <Button
+        android:id="@+id/stop_job"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_job"
+        android:text="@string/stop_job" />
+</RelativeLayout>
