@@ -7,6 +7,7 @@ import android.app.job.JobService;
 import android.content.Intent;
 import android.util.Log;
 
+import java.util.Calendar;
 import java.util.concurrent.ExecutionException;
 
 public class MyIntentService extends JobService {
@@ -32,6 +33,7 @@ public class MyIntentService extends JobService {
   }
 
   public void setAlarm(){
+    Calendar c = Calendar.getInstance();
 
     // Declaration
     Intent intent = new Intent(this, AlarmReceiver.class);
@@ -103,6 +105,14 @@ public class MyIntentService extends JobService {
     if(saturdayAlarmTime!=0) alarmManager.setExact(
             AlarmManager.RTC_WAKEUP, saturdayAlarmTime, pendingIntent7);
 
+    // Cancelling Alarms whose time has passed
+    if(sundayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent1);
+    if(mondayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent2);
+    if(tuesdayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent3);
+    if(wednesdayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent4);
+    if(thursdayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent5);
+    if(fridayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent6);
+    if(saturdayAlarmTime <= System.currentTimeMillis()) alarmManager.cancel(pendingIntent7);
 
     //print
     if(saturdayAlarmTime!=0) System.out.println(fetchData.getSaturdayCalendar().getTime());

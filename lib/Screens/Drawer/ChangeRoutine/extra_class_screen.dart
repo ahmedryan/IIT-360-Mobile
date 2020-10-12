@@ -35,11 +35,11 @@ class _ExtraClassScreenState extends State<ExtraClassScreen> {
     String day = dayFunction();
 
     var response = await http.post(
-        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$semester/$day/$instructorCode');
+        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$day/$instructorCode');
 
     //print
     print(
-        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$semester/$day/$instructorCode');
+        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$day/$instructorCode');
     print(response.statusCode);
 
     if (response.statusCode == 200) print('Class has been added!');
