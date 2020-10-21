@@ -121,33 +121,6 @@ class _ExtraClassScreenState extends State<ExtraClassScreen> {
                   },
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: new InputDecoration(
-                    labelText: "Enter Semester",
-                    fillColor: Colors.white,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(25.0),
-                      borderSide: new BorderSide(),
-                    ),
-                  ),
-                  validator: (val) {
-                    if (val.length == 0) {
-                      return "Semester cannot be empty";
-                    } else {
-                      return null;
-                    }
-                  },
-                  keyboardType: TextInputType.visiblePassword,
-                  style: new TextStyle(
-                    fontFamily: "Poppins",
-                  ),
-                  onChanged: (val) {
-                    semester = val;
-                  },
-                ),
-              ),
               ListTile(
                 title: Text(
                     "Class Date: ${classDate.year}, ${classDate.month}, ${classDate.day}"),
