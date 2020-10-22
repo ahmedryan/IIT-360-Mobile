@@ -23,6 +23,9 @@ class _RoutineTableState extends State<RoutineTable> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Routine"),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Table(
