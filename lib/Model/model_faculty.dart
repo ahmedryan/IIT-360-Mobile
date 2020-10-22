@@ -11,16 +11,6 @@ String facultyToJson(List<Faculty> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Faculty {
-  String facultyId;
-  String name;
-  String designation;
-  String qualification;
-  String links;
-  Status status;
-  String aboutMe;
-  String teachings;
-  String fkFacultyImage;
-
   Faculty({
     this.facultyId,
     this.name,
@@ -31,31 +21,61 @@ class Faculty {
     this.aboutMe,
     this.teachings,
     this.fkFacultyImage,
+    this.fkFacultyImageNavigation,
+    this.facultyPublication,
+    this.projectScholarship,
+    this.research,
   });
 
+  String facultyId;
+  String name;
+  String designation;
+  String qualification;
+  String links;
+  Status status;
+  String aboutMe;
+  String teachings;
+  int fkFacultyImage;
+  dynamic fkFacultyImageNavigation;
+  List<dynamic> facultyPublication;
+  List<dynamic> projectScholarship;
+  List<dynamic> research;
+
   factory Faculty.fromJson(Map<String, dynamic> json) => Faculty(
-        facultyId: json["faculty_id"],
+        facultyId: json["facultyId"],
         name: json["name"],
         designation: json["designation"] == null ? null : json["designation"],
         qualification:
             json["qualification"] == null ? null : json["qualification"],
         links: json["links"] == null ? null : json["links"],
         status: statusValues.map[json["status"]],
-        aboutMe: json["about_me"] == null ? null : json["about_me"],
+        aboutMe: json["aboutMe"] == null ? null : json["aboutMe"],
         teachings: json["teachings"],
-        fkFacultyImage: json["fk_faculty_image"],
+        fkFacultyImage: json["fkFacultyImage"],
+        fkFacultyImageNavigation: json["fkFacultyImageNavigation"],
+        facultyPublication:
+            List<dynamic>.from(json["facultyPublication"].map((x) => x)),
+        projectScholarship:
+            List<dynamic>.from(json["projectScholarship"].map((x) => x)),
+        research: List<dynamic>.from(json["research"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
-        "faculty_id": facultyId,
+        "facultyId": facultyId,
         "name": name,
         "designation": designation == null ? null : designation,
         "qualification": qualification == null ? null : qualification,
         "links": links == null ? null : links,
         "status": statusValues.reverse[status],
-        "about_me": aboutMe == null ? null : aboutMe,
+        "aboutMe": aboutMe == null ? null : aboutMe,
         "teachings": teachings,
-        "fk_faculty_image": fkFacultyImage,
+        "fkFacultyImage": fkFacultyImage,
+        "fkFacultyImageNavigation": fkFacultyImageNavigation,
+        "facultyPublication":
+            List<dynamic>.from(facultyPublication.map((x) => x)),
+        "projectScholarship":
+            List<dynamic>.from(projectScholarship.map((x) => x)),
+        "research": List<dynamic>.from(research.map((x) => x)),
       };
 }
 

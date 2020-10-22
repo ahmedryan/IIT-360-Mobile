@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iitappdevelopment/API_Call/call_academic_gs.dart';
 import 'package:iitappdevelopment/API_Call/call_academic_tp.dart';
 import 'package:iitappdevelopment/API_Call/call_academic_ugs.dart';
-import 'package:iitappdevelopment/Screens/Home/Academic/screen_academic_section.dart';
+import 'package:iitappdevelopment/Screens/Home/Academic/academic_section_screen.dart';
 
 class AcademicScreen extends StatefulWidget {
   @override

@@ -8,10 +8,10 @@ class AcademicSectionScreen extends StatefulWidget {
   AcademicSectionScreen(this.futureAcademicFunction);
 
   @override
-  _UndergraduateState createState() => _UndergraduateState();
+  _AcademicSectionScreenState createState() => _AcademicSectionScreenState();
 }
 
-class _UndergraduateState extends State<AcademicSectionScreen> {
+class _AcademicSectionScreenState extends State<AcademicSectionScreen> {
   Future<List<Academic>> futureAcademicUGS;
 
   @override
@@ -23,6 +23,9 @@ class _UndergraduateState extends State<AcademicSectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Undergraduate Studies'),
+      ),
       body: FutureBuilder(
         future: futureAcademicUGS,
         builder: (context, snapshot) {

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iitappdevelopment/API_Call/call_staff.dart';
+import 'package:iitappdevelopment/Attribute/url.dart';
 import 'package:iitappdevelopment/Model/model_staff.dart';
 
 class StaffScreen extends StatefulWidget {
@@ -45,7 +46,7 @@ class _StaffState extends State<StaffScreen> {
                         children: [
                           Expanded(
                             child: Image.network(
-                                'http://lit360.000webhostapp.com/getImage.php?id=${staff.fkStaffImage}'),
+                                '${URL.host}/api/Images/${staff.fkStaffImage}'),
                           ),
                           Text(
                             '${staff.name}',

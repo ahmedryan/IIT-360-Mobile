@@ -35,9 +35,12 @@ class _ExtraClassScreenState extends State<ExtraClassScreen> {
     String day = dayFunction();
 
     var response = await http.post(
-        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$semester/$day/$instructorCode');
+        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$day/$instructorCode');
+
+    //print
     print(
-        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$semester/$day/$instructorCode');
+        '${URL().extraClassURL}${global.user.email}/$modifiedCourseCode/${classDate.toString().substring(0, 10)}/${beginTime.toString().substring(10, 15)}/${endTime.toString().substring(10, 15)}/$day/$instructorCode');
+    print(response.statusCode);
 
     if (response.statusCode == 200) print('Class has been added!');
   }
@@ -115,33 +118,6 @@ class _ExtraClassScreenState extends State<ExtraClassScreen> {
                   ),
                   onChanged: (val) {
                     instructorCode = val;
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: new InputDecoration(
-                    labelText: "Enter Semester",
-                    fillColor: Colors.white,
-                    border: new OutlineInputBorder(
-                      borderRadius: new BorderRadius.circular(25.0),
-                      borderSide: new BorderSide(),
-                    ),
-                  ),
-                  validator: (val) {
-                    if (val.length == 0) {
-                      return "Semester cannot be empty";
-                    } else {
-                      return null;
-                    }
-                  },
-                  keyboardType: TextInputType.visiblePassword,
-                  style: new TextStyle(
-                    fontFamily: "Poppins",
-                  ),
-                  onChanged: (val) {
-                    semester = val;
                   },
                 ),
               ),

@@ -2,7 +2,7 @@ import 'package:iitappdevelopment/API_Call/call_iitian.dart';
 import 'package:iitappdevelopment/Model/model_iitian.dart';
 
 class IITIANList {
-  List<IITIAN> iitians = List<IITIAN>();
+  List<IITIAN> iitians = new List<IITIAN>();
 
   Future<void> loadData() async {
     var jsonBody = await fetchIITIAN();
@@ -19,19 +19,19 @@ class IITIANList {
       );
     }
 
-    print('size: ${iitians.length}');
+    print('Number of IITians: ${iitians.length}');
 
     iitians.forEach(
-      (element) {
-        print('Name: ${element.iitianMail}');
+      (oneIitian) {
+        print('IITian: ${oneIitian.iitianMail}');
       },
     );
   }
 }
 
 class IITIANInitialization {
-  IITIANList _iitianList = IITIANList();
-  List<IITIAN> _iitian = List<IITIAN>();
+  IITIANList _iitianList = new IITIANList();
+  List<IITIAN> _iitian = new List<IITIAN>();
 
   getIITIAN() {
     return _iitian;
@@ -39,11 +39,8 @@ class IITIANInitialization {
 
   Future<String> initialize() async {
     await _iitianList.loadData();
-    print('hoho: ${_iitianList.iitians.length}');
     _iitian.addAll(_iitianList.iitians);
-    print('hehe: ${_iitian.length}');
-
-    return 'IITian has been initialized';
+    return 'All IITians are registered to local storage!';
   }
 
   String searchUser(String mail) {

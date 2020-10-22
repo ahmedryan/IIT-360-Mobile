@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:iitappdevelopment/Screens/Alarm/alarmScreen.dart';
 import 'package:iitappdevelopment/Screens/Calendar/calendarScreen.dart';
 import 'package:iitappdevelopment/Screens/Drawer/ChangeRoutine/change_routine_screen.dart';
 import 'package:iitappdevelopment/Screens/Drawer/IndustryScreen/IndustryScreen.dart';
 import 'package:iitappdevelopment/Screens/Home/homeScreen.dart';
 import 'package:iitappdevelopment/Screens/Routine/routine_screen.dart';
+import 'package:iitappdevelopment/Services/android_activity.dart';
 import 'package:iitappdevelopment/Services/authentication.dart';
 import 'package:iitappdevelopment/Services/global_variable.dart' as global;
 
@@ -16,9 +16,18 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  MyAuthentication _myAuthentication = MyAuthentication();
-  bool _isLoggedIn = global.isLoggedIn;
-  bool _isCr = global.isCR;
+  MyAuthentication _myAuthentication;
+  bool _isLoggedIn;
+  bool _isCr;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _myAuthentication = new MyAuthentication();
+    _isLoggedIn = global.isLoggedIn;
+    _isCr = global.isCR;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +47,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                 ),
               if (!_isLoggedIn)
-                UserAccountsDrawerHeader(accountName: null, accountEmail: null),
+                UserAccountsDrawerHeader(
+                    accountName: Text(''), accountEmail: Text('')),
               if (_isLoggedIn)
                 ListTile(
-                    leading: Icon(Icons.assignment),
+                    leading: Icon(Icons.sentiment_very_dissatisfied),
                     title: new Text("Routine"),
                     onTap: () {
                       Navigator.push(
@@ -51,17 +61,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       );
                     }),
+              if (_isCr)
+                ListTile(
+                    leading: Icon(Icons.add_comment),
+                    title: new Text("Change Routine"),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChangeRoutine(),
+                        ),
+                      );
+                    }),
               if (_isLoggedIn)
                 ListTile(
                     leading: Icon(Icons.alarm),
                     title: new Text("Alarm"),
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AlarmScreen(),
-                        ),
-                      );
+                      AndroidActivity().getAlarmActivity();
+//                      Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                          builder: (context) => AlarmScreen(),
+//                        ),
+//                      );
                     }),
               if (_isLoggedIn)
                 ListTile(
@@ -86,27 +109,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     );
                   }),
-              if (_isCr)
-                ListTile(
-                    leading: Icon(Icons.phone),
-                    title: new Text("Change Routine"),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ChangeRoutine(),
-                        ),
-                      );
-                    }),
               if (_isLoggedIn)
                 ListTile(
                     leading: Icon(Icons.account_circle),
                     title: new Text("Logout"),
                     onTap: () {
-                      _myAuthentication.handleSignOut();
-                      setState(() {
-                        _isLoggedIn = false;
-                        _isCr = false;
+                      _myAuthentication.handleSignOut().then((value) {
+                        setState(() {
+                          _isLoggedIn = false;
+                          _isCr = false;
+                        });
                       });
                     }),
               if (!_isLoggedIn)

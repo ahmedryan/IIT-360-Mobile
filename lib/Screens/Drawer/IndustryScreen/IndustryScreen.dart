@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iitappdevelopment/API_Call/call_industry.dart';
+import 'package:iitappdevelopment/Attribute/url.dart';
 import 'package:iitappdevelopment/Model/model_industry.dart';
 
 class IndustryScreen extends StatefulWidget {
@@ -40,7 +41,7 @@ class _IndustryScreenState extends State<IndustryScreen> {
                       title: Text(industry.industryName),
                       //subtitle: Text(industry.indLink),
                       trailing: Image.network(
-                          'http://lit360.000webhostapp.com/getImage.php?id=${industry.indIcon}'),
+                          '${URL.host}/api/Images/${industry.indIcon}'),
                     ),
                   );
                 },

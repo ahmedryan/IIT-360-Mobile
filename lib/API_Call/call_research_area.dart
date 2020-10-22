@@ -1,9 +1,9 @@
 import 'package:http/http.dart' as http;
+import 'package:iitappdevelopment/Attribute/url.dart';
 import 'package:iitappdevelopment/Model/model_research_area.dart';
 
 Future<List<ResearchArea>> fetchResearchArea() async {
-  String url = "http://lit360.000webhostapp.com/research_area.php";
-  final response = await http.get(url);
+  final response = await http.get(URL().researchAreaURL);
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

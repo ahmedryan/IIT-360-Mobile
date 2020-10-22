@@ -11,29 +11,33 @@ String staffToJson(List<Staff> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Staff {
-  String staffsId;
-  String name;
-  String designation;
-  String fkStaffImage;
-
   Staff({
     this.staffsId,
     this.name,
     this.designation,
     this.fkStaffImage,
+    this.fkStaffImageNavigation,
   });
 
+  int staffsId;
+  String name;
+  String designation;
+  int fkStaffImage;
+  dynamic fkStaffImageNavigation;
+
   factory Staff.fromJson(Map<String, dynamic> json) => Staff(
-        staffsId: json["staffs_id"],
+        staffsId: json["staffsId"],
         name: json["name"],
         designation: json["designation"],
-        fkStaffImage: json["fk_staff_image"],
+        fkStaffImage: json["fkStaffImage"],
+        fkStaffImageNavigation: json["fkStaffImageNavigation"],
       );
 
   Map<String, dynamic> toJson() => {
-        "staffs_id": staffsId,
+        "staffsId": staffsId,
         "name": name,
         "designation": designation,
-        "fk_staff_image": fkStaffImage,
+        "fkStaffImage": fkStaffImage,
+        "fkStaffImageNavigation": fkStaffImageNavigation,
       };
 }
